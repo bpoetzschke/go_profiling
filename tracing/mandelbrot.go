@@ -18,7 +18,7 @@ import (
 
 func main() {
 
-	defer profile.Start(profile.CPUProfile, profile.ProfilePath(".")).Stop()
+	defer profile.Start(profile.TraceProfile, profile.ProfilePath(".")).Stop()
 
 	var (
 		height  = flag.Int("h", 1024, "height of the output image in pixels")

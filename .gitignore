@@ -4,3 +4,4 @@ cpu/cpu
 block/block
 mutex/mutex
 memory/memory
+mandelbrot.png
