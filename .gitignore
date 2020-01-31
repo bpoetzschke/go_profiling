@@ -8,4 +8,5 @@ cpu/*.txt
 block/block
 mutex/mutex
 memory/memory
+tracing/mandelbrot
 mandelbrot.png

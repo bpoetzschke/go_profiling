@@ -34,7 +34,7 @@ is automatically generated in the root directory of the application.
     * Different count of words, we can neglect this.
     * `wc` runs much faster
     
-5. To figure out why our application is slow we will analyze the CPU profile, we already gathered.
+5. To figure out why our application is slow we will analyze the CPU profile which we already gathered.
 
     1. To analyze the profile run the following command.
         ```bash
@@ -56,10 +56,13 @@ is automatically generated in the root directory of the application.
                 0     0%   100%      690ms 98.57%  syscall.Read
                 0     0%   100%      690ms 98.57%  syscall.read
        ```
-   3. Printing out the top entries reveals that `syscall.syscall` is using most of the time. This is caused by calling `main.readbyte`.
-        This is not surprising since `syscall.syscall` is a expensive and slow operation.
-   4. To improve the application we can introduce buffered reader which will help us improving the performance of the application.
-6. The sample application already has the `bufio.Reader` implemented. Run the application again, but this time with the `VERSION` env var set to `1`.
+   3. Printing out the top entries reveals that `syscall.syscall` is using most of the time. This is caused by calling 
+   `main.readbyte`. This is not surprising since `syscall.syscall` is a expensive and slow operation.
+        
+   4. To improve the application we can introduce buffered reader which will help us improving the performance of the 
+   application.
+6. The sample application already has the `bufio.Reader` implemented. Run the application again, but this time with 
+    the `VERSION` env var set to `1`.
     ```bash
    time VERSION=1 ./cpu <path_to_text_file>
    ``` 
@@ -70,7 +73,7 @@ is automatically generated in the root directory of the application.
     2020/01/31 13:46:11 profile: cpu profiling disabled, cpu.pprof
     VERSION=1 ./cpu moby.txt  0.04s user 0.01s system 18% cpu 0.247 total
    ```
-   The `top` subcommand in the go profiler also shows that we got rid of `syscall.syscall`. The program now only spents
+   The `top` sub-command in the go profiler also shows that we got rid of `syscall.syscall`. The program now only spents
    a small amount of time to allocate memory and to read the file.
    ```
    (pprof) top
@@ -86,8 +89,9 @@ is automatically generated in the root directory of the application.
    ```
     
 # Acknowledgements
-This example is taken from [Dave Cheney](https://twitter.com/davecheney)'s [`High Performance Go Workshop`](https://dave.cheney.net/high-performance-go-workshop/gophercon-2019.html) from 
-GopherCon 2019.
+This example is taken from [Dave Cheney](https://twitter.com/davecheney)'s 
+[`High Performance Go Workshop`](https://dave.cheney.net/high-performance-go-workshop/gophercon-2019.html) 
+from GopherCon 2019.
 
 # License
 See original license: https://github.com/davecheney/high-performance-go-workshop#license-and-materials
