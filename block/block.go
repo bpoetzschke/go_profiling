@@ -24,4 +24,6 @@ func main() {
 		in = out
 	}
 	fmt.Println(<-out)
+	fmt.Println("Sleep")
+	time.Sleep(5 * time.Second)
 }
