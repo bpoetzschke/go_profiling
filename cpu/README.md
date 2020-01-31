@@ -86,5 +86,11 @@ is automatically generated in the root directory of the application.
    ```
     
 # Acknowledgements
-This example is taken from [Dave Cheney](https://twitter.com/davecheney)'s `High Performance Go Workshop` from 
+This example is taken from [Dave Cheney](https://twitter.com/davecheney)'s [`High Performance Go Workshop`](https://dave.cheney.net/high-performance-go-workshop/gophercon-2019.html) from 
 GopherCon 2019.
+
+# License
+See original license: https://github.com/davecheney/high-performance-go-workshop#license-and-materials
+
+## Changes made
+Changes were made to support a environment var to select between buffered reader and regular reader.

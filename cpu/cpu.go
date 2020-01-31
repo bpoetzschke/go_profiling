@@ -1,6 +1,8 @@
 package main
 
 // Example taken from https://github.com/davecheney/high-performance-go-workshop/blob/master/examples/words/
+// See original license: https://github.com/davecheney/high-performance-go-workshop#license-and-materials
+// Changes were made to support a environment var to select between buffered reader and regular reader.
 
 import (
 	"bufio"
