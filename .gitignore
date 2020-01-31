@@ -1,6 +1,9 @@
 .idea
 *.pprof
 cpu/cpu
+*/*.pprof
+*/profile*.*
+cpu/*.txt
 block/block
 mutex/mutex
 memory/memory
