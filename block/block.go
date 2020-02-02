@@ -1,7 +1,12 @@
+// Example taken from: https://github.com/davecheney/high-performance-go-workshop/blob/master/examples/block/block.go
+// Modified to include an additional sleep to demonstrate the blockig profile
+
 package main
 
 import (
 	"fmt"
+	"os"
+	"strings"
 	"time"
 
 	"github.com/pkg/profile"
@@ -18,12 +23,15 @@ func main() {
 	in := make(chan int, 1)
 	in <- 1
 	var out chan int
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 20; i++ {
 		out = make(chan int)
 		go generate(in, out)
 		in = out
 	}
+	sleep := os.Getenv("SLEEP")
 	fmt.Println(<-out)
-	fmt.Println("Sleep")
-	time.Sleep(5 * time.Second)
+	if strings.ToLower(sleep) == "true" {
+		fmt.Println("Sleep")
+		time.Sleep(10 * time.Second)
+	}
 }
