@@ -1,3 +1,6 @@
+// Example taken from https://rakyll.org/mutexprofile/
+// Modified to work as standalone application. Included print and additional sleep
+
 package main
 
 import (
