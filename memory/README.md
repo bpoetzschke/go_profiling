@@ -63,8 +63,10 @@ during the runtime of program.
                 0     0% 99.79% 14950.87kB 99.86%  runtime.main
        ```
        
-       Now we can see that the application is allocating approximately 14. MB of memory during the runtime. Also we can see
-       that `main.allocate` allocates the most memory.
+       Now we can see that the application is allocating approximately 14.59 MB of memory during the runtime. 
+       Also we can see that `main.allocate` allocates the most memory. The `flat` column shows the size of the 
+       allocations caused by the method in the respective line. The `cum` column shows the total size allocations of
+       the respective method including calls to other methods within the method.  
    
     3. To see in detail where `main.allocate` allocates the most memory we can have the annotated source of this method
         shown. To do so run the following sub-command inside `pprof`.

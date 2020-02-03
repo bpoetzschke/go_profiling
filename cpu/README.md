@@ -56,6 +56,8 @@ is automatically generated in the root directory of the application.
                 0     0%   100%      690ms 98.57%  syscall.Read
                 0     0%   100%      690ms 98.57%  syscall.read
        ```
+       The `flat` column shows the total time spent in the respective method excluding other method calls. 
+       The `cum` columns shows the total time spent in the respective method including other method calls.
    3. Printing out the top entries reveals that `syscall.syscall` is using most of the time. This is caused by calling 
    `main.readbyte`. This is not surprising since `syscall.syscall` is a expensive and slow operation.
         

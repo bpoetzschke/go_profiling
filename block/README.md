@@ -1,4 +1,4 @@
-# CPU profiling
+# Block profiling
 This example demonstrates the use case of profiling a golang application with the Block profile.
 The application in this example uses for loops and channels to create some artificial blocking. A Block profile
 is automatically generated in the root directory of the application.
@@ -40,7 +40,8 @@ is automatically generated in the root directory of the application.
                0     0%   100%      2.06s  9.51%  main.main
                0     0%   100%      2.06s  9.51%  runtime.main
         ```
-      
+      The `flat` column shows the total time spent in the respective method excluding other method calls. 
+      The `cum` columns shows the total time spent in the respective method including other method calls.
     3. We can see that `runtime.chanrecv1` is causing the application to be blocked for 21.61 seconds.
      The value we see is higher than the actual runtime which `time` reported because the application is using 
      go routines to compute the result.
