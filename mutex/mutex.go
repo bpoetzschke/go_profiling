@@ -34,6 +34,6 @@ func main() {
 
 	fmt.Println("Wait")
 	wg.Wait()
-	fmt.Println("Sleep 5s")
-	time.Sleep(5 * time.Second)
+	fmt.Println("Sleep 2s")
+	time.Sleep(2 * time.Second)
 }

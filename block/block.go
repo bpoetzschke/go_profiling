@@ -32,6 +32,6 @@ func main() {
 	fmt.Println(<-out)
 	if strings.ToLower(sleep) == "true" {
 		fmt.Println("Sleep")
-		time.Sleep(10 * time.Second)
+		time.Sleep(2 * time.Second)
 	}
 }
