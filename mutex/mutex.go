@@ -20,6 +20,7 @@ func main() {
 
 	fmt.Println("Start mutex contention")
 
+	// 6.2 million go routines
 	for i := 0; i < 2500*2500; i++ {
 		wg.Add(1)
 		go func(i int) {
