@@ -5,7 +5,6 @@ package main
 // Changes were made to support a environment var to select between buffered reader and regular reader.
 
 import (
-	"bufio"
 	"fmt"
 	"io"
 	"log"
@@ -29,28 +28,15 @@ func main() {
 		log.Fatalf("could not open file %q: %v", os.Args[1], err)
 	}
 
-	version := os.Getenv("VERSION")
-	if version == "" {
-		version = "0"
-	}
-
-	words := 0
-
-	switch version {
-	case "0":
-		words = v0(f)
-	case "1":
-		words = v1(f)
-	default:
-		words = v0(f)
-	}
+	words := countWords(f)
 
 	fmt.Printf("%q: %d words\n", os.Args[1], words)
 }
 
-func v0(f *os.File) int {
+func countWords(f *os.File) int {
 	words := 0
 	inword := false
+
 	for {
 		r, err := readbyte(f)
 		if err == io.EOF {
@@ -69,26 +55,26 @@ func v0(f *os.File) int {
 	return words
 }
 
-func v1(f *os.File) int {
-	words := 0
-	inword := false
+// func countWords(f *os.File) int {
+// 	words := 0
+// 	inword := false
 
-	b := bufio.NewReader(f)
+// 	b := bufio.NewReader(f)
 
-	for {
-		r, err := readbyte(b)
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			log.Fatalf("could not read file %q: %v", os.Args[1], err)
-		}
-		if unicode.IsSpace(r) && inword {
-			words++
-			inword = false
-		}
-		inword = unicode.IsLetter(r)
-	}
+// 	for {
+// 		r, err := readbyte(b)
+// 		if err == io.EOF {
+// 			break
+// 		}
+// 		if err != nil {
+// 			log.Fatalf("could not read file %q: %v", os.Args[1], err)
+// 		}
+// 		if unicode.IsSpace(r) && inword {
+// 			words++
+// 			inword = false
+// 		}
+// 		inword = unicode.IsLetter(r)
+// 	}
 
-	return words
-}
+// 	return words
+// }
