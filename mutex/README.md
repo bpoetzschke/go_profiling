@@ -1,5 +1,5 @@
 # Mutex profiling
-This example demonstrates the use case of profiling a golang application with the Mutex profile.
+This example demonstrates the use case of profiling a Go application with the Mutex profile.
 The application in this example uses for loops and mutexes to create artificial mutex contention. 
 A Mutex profile is automatically generated in the root directory of the application.
 

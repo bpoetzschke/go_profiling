@@ -76,7 +76,6 @@ func (m *img) At(x, y int) color.Color { return m.m[x][y] }
 func (m *img) ColorModel() color.Model { return color.RGBAModel }
 func (m *img) Bounds() image.Rectangle { return image.Rect(0, 0, m.h, m.w) }
 
-// SEQSTART OMIT
 func seqFillImg(m *img) {
 	for i, row := range m.m {
 		for j := range row {
@@ -84,8 +83,6 @@ func seqFillImg(m *img) {
 		}
 	}
 }
-
-// SEQEND OMIT
 
 func oneToOneFillImg(m *img) {
 	var wg sync.WaitGroup

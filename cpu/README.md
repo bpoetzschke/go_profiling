@@ -1,5 +1,5 @@
 # CPU profiling
-This example demonstrates the use case of profiling a golang application with the CPU profile.
+This example demonstrates the use case of profiling a Go application with the CPU profile.
 The application in this example takes a path to a text file and counts the words in it. A CPU profile
 is automatically generated in the root directory of the application.
 
@@ -58,8 +58,10 @@ is automatically generated in the root directory of the application.
        ```
        The `flat` column shows the total time spent in the respective method excluding other method calls. 
        The `cum` columns shows the total time spent in the respective method including other method calls.
-   3. Printing out the top entries reveals that `syscall.syscall` is using most of the time. This is caused by calling 
-   `main.readbyte`. This is not surprising since `syscall.syscall` is a expensive and slow operation.
+   3. Printing out the top entries reveals that `syscall.syscall` is using most of the time, which is is caused by calling 
+   `main.readbyte`. The reason our program is slow is not that `syscall.syscall` is slow but rather that this is a very
+   expensive operation. Each time we call `readbyte` a call to `syscall.Read` with a default buffer size of 1 is done.
+   This results in the fact that the number calls to `readbyte` is equal to the size of the input.  
         
    4. To improve the application we can introduce buffered reader which will help us improving the performance of the 
    application.

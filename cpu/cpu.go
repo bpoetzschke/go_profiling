@@ -58,9 +58,9 @@ func countWords(f *os.File) int {
 // func countWords(f *os.File) int {
 // 	words := 0
 // 	inword := false
-
+//
 // 	b := bufio.NewReader(f)
-
+//
 // 	for {
 // 		r, err := readbyte(b)
 // 		if err == io.EOF {
@@ -75,6 +75,6 @@ func countWords(f *os.File) int {
 // 		}
 // 		inword = unicode.IsLetter(r)
 // 	}
-
+//
 // 	return words
 // }
