@@ -9,5 +9,6 @@ block/block
 mutex/mutex
 memory/memory
 tracing/mandelbrot
+tracing/tracing
 tracing/*.out
 mandelbrot.png
